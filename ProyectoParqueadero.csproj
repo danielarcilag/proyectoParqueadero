@@ -76,6 +76,7 @@
       <DependentUpon>registroVehiculoForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Usuario.cs" />
+    <Compile Include="usuarioOcasional.cs" />
     <Compile Include="usuarioUsual.cs" />
     <Compile Include="Vehiculo.cs" />
     <EmbeddedResource Include="loginForm.resx">

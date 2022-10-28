@@ -6,18 +6,20 @@ using System.Threading.Tasks;
 
 namespace ProyectoParqueadero
 {
-    public class usuarioUsual:Usuario
+    public class usuarioOcasional : Usuario
     {
-        string _nombreUsuario="_";
-        string _contrasenia="_";
-        const string _TIPOUSUARIO = "USUAL";
+        string _nombreUsuario = "_";
+        string _contrasenia = "_";
+        const string _TIPOUSUARIO = "OCASIONAL";
 
-        public usuarioUsual()
-        { }
-        public usuarioUsual(string nombreUsuario, string contrasenia)
+        public usuarioOcasional(string nombreUsuario, string contrasenia)
         {
             NombreUsuario = nombreUsuario;
             Contrasenia = contrasenia;
+        }
+
+        public usuarioOcasional()
+        {
         }
 
         public override string NombreUsuario { get => _nombreUsuario; set => _nombreUsuario = value; }

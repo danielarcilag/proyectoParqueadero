@@ -49,8 +49,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.aviso = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -73,6 +71,7 @@
             // 
             // horaEntradaTxt
             // 
+            this.horaEntradaTxt.Enabled = false;
             this.horaEntradaTxt.Location = new System.Drawing.Point(142, 157);
             this.horaEntradaTxt.Name = "horaEntradaTxt";
             this.horaEntradaTxt.Size = new System.Drawing.Size(121, 22);
@@ -129,9 +128,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(281, 371);
+            this.button1.Location = new System.Drawing.Point(269, 372);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(98, 23);
+            this.button1.Size = new System.Drawing.Size(262, 23);
             this.button1.TabIndex = 4;
             this.button1.Text = "REGISTRAR";
             this.button1.UseVisualStyleBackColor = true;
@@ -278,24 +277,6 @@
             this.label5.TabIndex = 3;
             this.label5.Text = "TIPO";
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(454, 371);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(83, 23);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "MENU";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(630, 371);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(96, 23);
-            this.button3.TabIndex = 9;
-            this.button3.Text = "PAGAR";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
             // aviso
             // 
             this.aviso.AutoSize = true;
@@ -311,8 +292,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.aviso);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);
@@ -350,8 +329,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label aviso;
     }
 }

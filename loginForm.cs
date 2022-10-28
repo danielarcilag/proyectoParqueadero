@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,45 +13,61 @@ namespace ProyectoParqueadero
 {
     public partial class Form1 : Form
     {
-        private Usuario _usuario = new usuarioUsual();
-        private Usuario _usuario2 = new usuarioUsual("asd", "asd");
-        private Usuario _usuario3 = new usuarioUsual("santiago", "321");
-        private Usuario _usuario4 = new usuarioUsual("ramiro", "123");
+        private usuarioUsual[] _usuariosUsuales = new usuarioUsual[5];
+        private usuarioOcasional _usuarioOcasional = new usuarioOcasional();
+        
         public Form1()
         {
             InitializeComponent();
-
+            UsuariosUsuales[0] = new usuarioUsual("asd", "asd");
+            UsuariosUsuales[1] = new usuarioUsual("santiago", "321");
+            UsuariosUsuales[2] = new usuarioUsual("ramiro", "123");
+            UsuariosUsuales[3] = new usuarioUsual("", "");
+            UsuariosUsuales[4] = new usuarioUsual("", "");
         }
-        public Form1(usuarioUsual usuario)
+        public Form1(usuarioOcasional usuarioOcasional)
         {
             InitializeComponent();
-            Usuario = usuario;
+            UsuarioOcasional = usuarioOcasional;
+            UsuariosUsuales[0] = new usuarioUsual("asd", "asd");
+            UsuariosUsuales[1] = new usuarioUsual("santiago", "321");
+            UsuariosUsuales[2] = new usuarioUsual("ramiro", "123");
+            UsuariosUsuales[3] = new usuarioUsual("", "");
+            UsuariosUsuales[4] = new usuarioUsual("", "");
+
         }
 
-        public Usuario Usuario { get => _usuario; set => _usuario = value; }
-        public Usuario Usuario2 { get => _usuario2; set => _usuario2 = value; }
-        public Usuario Usuario3 { get => _usuario3; set => _usuario3 = value; }
-        public Usuario Usuario4 { get => _usuario4; set => _usuario4 = value; }
+        public usuarioOcasional UsuarioOcasional { get => _usuarioOcasional; set => _usuarioOcasional = value; }
+        public usuarioUsual[] UsuariosUsuales { get => _usuariosUsuales; set => _usuariosUsuales = value; }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (Usuario.NombreUsuario == nombreUsuarioTxt.Text && Usuario.Contrasenia == contraseniaTxt.Text
-                || Usuario2.NombreUsuario == nombreUsuarioTxt.Text && Usuario2.Contrasenia == contraseniaTxt.Text)
+            foreach (usuarioUsual usuario in UsuariosUsuales)
             {
-                menuForm menuForm = new menuForm();
+                if (usuario.NombreUsuario == nombreUsuarioTxt.Text && usuario.Contrasenia == contraseniaTxt.Text)
+                {
+                    menuForm menuForm = new menuForm(usuario);
+                    Hide();
+                    menuForm.Show();
+                    break;
+                }
+            }
+
+            if (UsuarioOcasional.NombreUsuario == nombreUsuarioTxt.Text && UsuarioOcasional.Contrasenia == contraseniaTxt.Text)
+            {
+                menuForm menuForm = new menuForm(UsuarioOcasional);
                 Hide();
                 menuForm.Show();
             }
-            else
-            {
-                labelLogin.Text = "Nombre de usuario o contraseña incorrectos";
-            }
+
+            labelLogin.Text = "Nombre de usuario o contraseña incorrectos";
+            
 
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            RegistroForm registroForm = new RegistroForm();
+            RegistroForm registroForm = new RegistroForm(UsuariosUsuales);
             Hide();
             registroForm.Show();
         }
